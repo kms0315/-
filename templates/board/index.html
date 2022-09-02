@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block con %}
+    <h1><b>게시판</b></h1>
+        
+    <div class="text-end">
+        <a href="#" class="btn btn-dark">게시글생성</a>
+    </div>
+
+    <table class="table table-hover mt-4">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">NO</th>
+                <th scope="col">SUBJECT</th>
+                <th scope="col">SUMMARY</th>
+                <th scope="col">WRITER</th>
+                <th scope="col">LIKEY</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in bset %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td><a class="sub" href="#">{{ i.subject }}</a></td>
+                    <td>{{ i.writer }}</td>
+                    <td>{{ i.content }}</td>
+                    <td>5</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <style>
+        .sub {
+            text-decoration: none;
+            color:black;
+            font-weight: bold;
+        }
+        .sub:hover{
+            color:red;
+        }
+    </style>
+{% endblock %}
